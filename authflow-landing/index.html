@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AuthFlow API - Solução empresarial completa de autenticação e autorização com Node.js, JWT e Docker.">
+  <title>AuthFlow API - Autenticação Empresarial Segura</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <span class="logo-icon">🔐</span>
+        <span class="logo-text">AuthFlow<span class="logo-accent">API</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#features">Funcionalidades</a></li>
+        <li><a href="#tech">Tecnologias</a></li>
+        <li><a href="#api">API</a></li>
+        <li><a href="#deploy">Deploy</a></li>
+        <li><a href="#docs">Docs</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://github.com/eu-waliston/authflow-api" class="btn btn-ghost" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="#docs" class="btn btn-primary">Começar Agora</a>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        v1.0 · Open Source · MIT License
+      </div>
+      <h1 class="hero-title">
+        Autenticação <span class="gradient-text">empresarial</span><br>
+        pronta para produção
+      </h1>
+      <p class="hero-subtitle">
+        AuthFlow API é uma solução completa de autenticação e autorização construída com Node.js.
+        JWT, roles, refresh tokens, rate limiting e Docker — tudo pronto para você focar no que importa.
+      </p>
+      <div class="hero-actions">
+        <a href="#docs" class="btn btn-primary btn-lg">
+          📖 Ver Documentação
+        </a>
+        <a href="https://github.com/eu-waliston/authflow-api" class="btn btn-outline btn-lg" target="_blank">
+          ⭐ Star no GitHub
+        </a>
+      </div>
+
+      <!-- Terminal Demo -->
+      <div class="terminal">
+        <div class="terminal-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="terminal-title">terminal — authflow</span>
+        </div>
+        <div class="terminal-body">
+          <div class="line"><span class="prompt">$</span> <span class="cmd">docker-compose up -d</span></div>
+          <div class="line out">✔ Container authflow-postgres  <span class="ok">Started</span></div>
+          <div class="line out">✔ Container authflow-redis     <span class="ok">Started</span></div>
+          <div class="line out">✔ Container authflow-api       <span class="ok">Started</span></div>
+          <div class="line out info">🚀 API disponível em http://localhost:3000</div>
+          <div class="line"><span class="prompt">$</span> <span class="cmd">curl -X POST /api/auth/login</span></div>
+          <div class="line out success">{ "token": "eyJhbGciOiJIUzI1NiIs...", "role": "admin" }</div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Stateless JWT</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">12+</div>
+          <div class="stat-label">Endpoints REST</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">Docker</div>
+          <div class="stat-label">Ready to Deploy</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">MIT</div>
+          <div class="stat-label">Licença Aberta</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Funcionalidades</span>
+        <h2 class="section-title">Tudo que você precisa em uma API de autenticação</h2>
+        <p class="section-subtitle">Recursos robustos e testados, prontos para escalar com seu negócio.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🔑</div>
+          <h3>JWT + Refresh Tokens</h3>
+          <p>Autenticação stateless com tokens de acesso e refresh tokens com expiração configurável.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛡️</div>
+          <h3>Roles & Permissões</h3>
+          <p>Controle de acesso baseado em roles (admin/user) com permissões granulares por endpoint.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👥</div>
+          <h3>CRUD de Usuários</h3>
+          <p>Gerenciamento completo de usuários com validação de dados usando Joi.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Rate Limiting</h3>
+          <p>Proteção contra ataques de força bruta com rate limiting via Redis.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Segurança Avançada</h3>
+          <p>Bcrypt com salt, Helmet, CORS configurável e sanitização de inputs.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Logging Estruturado</h3>
+          <p>Logs com Winston prontos para integração com ferramentas de monitoramento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="section section-dark" id="tech">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Stack Tecnológica</span>
+        <h2 class="section-title">Construído com tecnologias modernas</h2>
+        <p class="section-subtitle">Ferramentas confiáveis e amplamente adotadas no mercado.</p>
+      </div>
+
+      <div class="tech-grid">
+        <div class="tech-item"><span class="tech-emoji">🟢</span><span>Node.js 18+</span></div>
+        <div class="tech-item"><span class="tech-emoji">⚡</span><span>Express.js</span></div>
+        <div class="tech-item"><span class="tech-emoji">🐘</span><span>PostgreSQL</span></div>
+        <div class="tech-item"><span class="tech-emoji">🔴</span><span>Redis</span></div>
+        <div class="tech-item"><span class="tech-emoji">🎫</span><span>JWT</span></div>
+        <div class="tech-item"><span class="tech-emoji">✅</span><span>Joi</span></div>
+        <div class="tech-item"><span class="tech-emoji">📝</span><span>Winston</span></div>
+        <div class="tech-item"><span class="tech-emoji">🐳</span><span>Docker</span></div>
+        <div class="tech-item"><span class="tech-emoji">🧪</span><span>Jest</span></div>
+        <div class="tech-item"><span class="tech-emoji">🔄</span><span>GitHub Actions</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- API ENDPOINTS -->
+  <section class="section" id="api">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">API Reference</span>
+        <h2 class="section-title">Endpoints simples e intuitivos</h2>
+        <p class="section-subtitle">RESTful, versionada e fácil de integrar com qualquer stack.</p>
+      </div>
+
+      <div class="api-tabs">
+        <button class="api-tab active" data-tab="auth">🔐 Autenticação</button>
+        <button class="api-tab" data-tab="users">👥 Usuários</button>
+        <button class="api-tab" data-tab="profile">👤 Perfil</button>
+      </div>
+
+      <div class="api-content">
+        <div class="api-panel active" data-panel="auth">
+          <div class="endpoint"><span class="method post">POST</span><code>/api/auth/register</code><span class="desc">Registrar novo usuário</span></div>
+          <div class="endpoint"><span class="method post">POST</span><code>/api/auth/login</code><span class="desc">Autenticar usuário</span></div>
+          <div class="endpoint"><span class="method post">POST</span><code>/api/auth/refresh</code><span class="desc">Renovar access token</span></div>
+          <div class="endpoint"><span class="method post">POST</span><code>/api/auth/logout</code><span class="desc">Encerrar sessão</span></div>
+          <div class="endpoint"><span class="method post">POST</span><code>/api/auth/forgot-password</code><span class="desc">Solicitar reset de senha</span></div>
+        </div>
+
+        <div class="api-panel" data-panel="users">
+          <div class="endpoint"><span class="method get">GET</span><code>/api/users</code><span class="desc">Listar usuários (admin)</span></div>
+          <div class="endpoint"><span class="method get">GET</span><code>/api/users/:id</code><span class="desc">Buscar usuário por ID</span></div>
+          <div class="endpoint"><span class="method put">PUT</span><code>/api/users/:id</code><span class="desc">Atualizar usuário</span></div>
+          <div class="endpoint"><span class="method delete">DELETE</span><code>/api/users/:id</code><span class="desc">Remover usuário (admin)</span></div>
+          <div class="endpoint"><span class="method put">PUT</span><code>/api/users/:id/role</code><span class="desc">Atualizar role (admin)</span></div>
+        </div>
+
+        <div class="api-panel" data-panel="profile">
+          <div class="endpoint"><span class="method get">GET</span><code>/api/profile</code><span class="desc">Ver meu perfil</span></div>
+          <div class="endpoint"><span class="method put">PUT</span><code>/api/profile</code><span class="desc">Atualizar meu perfil</span></div>
+          <div class="endpoint"><span class="method put">PUT</span><code>/api/profile/password</code><span class="desc">Alterar minha senha</span></div>
+        </div>
+      </div>
+
+      <!-- Code Example -->
+      <div class="code-example">
+        <div class="code-header">
+          <span class="code-lang">cURL</span>
+          <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+        </div>
+        <pre class="code-body"><code>curl -X POST http://localhost:3000/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "SecurePass123!",
+    "role": "user"
+  }'</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPLOY -->
+  <section class="section section-dark" id="deploy">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Deploy</span>
+        <h2 class="section-title">Pronto para produção em minutos</h2>
+        <p class="section-subtitle">Escolha a estratégia que melhor se adapta ao seu ambiente.</p>
+      </div>
+
+      <div class="deploy-grid">
+        <div class="deploy-card">
+          <div class="deploy-icon">🐳</div>
+          <h3>Docker Compose</h3>
+          <p>Suba API, PostgreSQL e Redis com um único comando.</p>
+          <pre><code>docker-compose up -d</code></pre>
+        </div>
+        <div class="deploy-card">
+          <div class="deploy-icon">☸️</div>
+          <h3>Kubernetes</h3>
+          <p>Escalone horizontalmente com múltiplas réplicas e secrets.</p>
+          <pre><code>kubectl apply -f deployment.yaml</code></pre>
+        </div>
+        <div class="deploy-card">
+          <div class="deploy-icon">⚙️</div>
+          <h3>PM2 + Nginx</h3>
+          <p>Deploy tradicional com process manager e reverse proxy.</p>
+          <pre><code>pm2 start dist/app.js</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="docs">
+    <div class="container cta-content">
+      <h2>Pronto para começar?</h2>
+      <p>Clone o repositório e tenha autenticação empresarial rodando em minutos.</p>
+      <div class="cta-actions">
+        <a href="https://github.com/eu-waliston/authflow-api" class="btn btn-primary btn-lg" target="_blank">
+          ⭐ Ver no GitHub
+        </a>
+        <a href="https://github.com/eu-waliston/authflow-api#readme" class="btn btn-outline btn-lg" target="_blank">
+          📖 Ler Documentação
+        </a>
+      </div>
+
+      <div class="install-cmd">
+        <code>git clone https://github.com/eu-waliston/authflow-api.git</code>
+        <button class="copy-btn" onclick="copyText(this, 'git clone https://github.com/eu-waliston/authflow-api.git')">📋</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <span class="logo-icon">🔐</span>
+        <span class="logo-text">AuthFlow<span class="logo-accent">API</span></span>
+        <p>Solução empresarial de autenticação e autorização.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Projeto</h4>
+          <a href="#features">Funcionalidades</a>
+          <a href="#tech">Tecnologias</a>
+          <a href="#api">API</a>
+        </div>
+        <div>
+          <h4>Recursos</h4>
+          <a href="https://github.com/eu-waliston/authflow-api" target="_blank">GitHub</a>
+          <a href="https://github.com/eu-waliston/authflow-api/issues" target="_blank">Reportar Bug</a>
+          <a href="https://github.com/eu-waliston/authflow-api/issues" target="_blank">Solicitar Feature</a>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <a href="#">Licença MIT</a>
+          <a href="#">Contribuir</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2024 AuthFlow API · Desenvolvido por <a href="https://github.com/eu-waliston" target="_blank">Waliston</a> · MIT License</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
